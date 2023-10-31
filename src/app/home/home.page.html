@@ -1,0 +1,110 @@
+<ion-content >
+  <div class="container d-flex justify-content-center align-items-center min-vh-100">
+
+    <div class="row border rounded-5 p-3 bg-white shadow box-area">
+      <section class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box" style="background: #0b527c;">
+        <div class="featured-image mb-3">
+          <img src="../../assets/images/cecic.jpg.jpg" class="img-fluid" style="width: 250px">
+          <p class="text-white text-center fs-2 "> Authentification </p>
+          <small class="text-white text-wrap text-center" style=" width: 17rem;"> cette plateforme est destine au agents de credits de la CECIC </small>
+        </div>
+
+      </section>
+      <section class="col-md-6 right-box">
+        <div class="row align-items-center">
+          <div class="header-text mb-4">
+            <p class="title">Bienvenue</p>
+
+            <div class="separator"></div>
+
+          <small class="welcome-message">
+            Entrer vos parametres d'identification afin d'acceder a la
+            plateforme de gestion de suivi des activites de credit
+          </small>
+
+          </div>
+
+          <form
+            (ngSubmit)="onSubmit()"
+            [formGroup]="loginForm"
+            class="login-form"
+          >
+            <div class="input-group mb-3">
+              <input
+                class="form-control form-control-lg bg-light fs-6"
+                placeholder="natacha@cecic-sa.com"
+                type="email"
+                formControlName="email"
+                name="email"
+                required
+              />
+            </div>
+            <div
+            color="danger"
+            class="alert alert-danger alert-dismissible fade show"
+            role="alert"
+            *ngIf="loginForm.get('email')?.errors && loginForm.get('email')?.touched"
+          >
+            <small> Entrer une adresse mail valide </small>
+          </div>
+
+            <div class="imput-group mb-3">
+              <input
+              class="form-control form-control-lg bg-light fs-6"
+                placeholder="XXXXXXXXXXXXXXX"
+                type="password"
+                formControlName="password"
+                name="password"
+              />
+            </div>
+            <div
+            color="danger"
+            role="danger"
+            class="alert alert-danger alert-dismissible fade show"
+            *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.touched"
+          >
+            <small> Le mot de passe est requis</small>
+          </div>
+
+
+
+            <div class="input-group mb-5 d-flex justify-content-between">
+              <div class="left form-check">
+                <ion-checkbox
+                  formControlName="remenberMe"
+                  (ionChange)="onRememberMeChange()"
+                ></ion-checkbox>
+                <label class="form-check-label text-secondary" for="check">
+                  Souvenir de moi
+                </label>
+              </div>
+              <div class="right">
+                <label style="font-size: 15px; font-weight: bold">
+                  <a href="#"> Mot de passe oublie</a></label
+                >
+              </div>
+            </div>
+
+            <div color="danger" role="danger" class="alert alert-danger alert-dismissible fade show" *ngIf="loginError">
+              <small> {{ loginError }} </small>
+            </div>
+            <div class="input-group mb-3">
+              <button
+              class="btn btn-lg btn-primary w-100 fs-12"
+              id="submitBtn"
+              type="submit"
+              expand="block"
+              shape="round"
+              [disabled]="loginForm.invalid"
+            >
+              connexion
+            </button>
+
+
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+  </div>
+</ion-content>

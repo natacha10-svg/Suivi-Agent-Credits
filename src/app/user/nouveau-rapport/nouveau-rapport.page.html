@@ -1,0 +1,58 @@
+<ion-content>
+
+  <div class="container">
+    <div class="top">
+      <div class="header-row">
+        <ion-button routerLink="/dashboard-user/dashboard-user/liste-echeances"> <ion-icon name="arrow-back"> </ion-icon></ion-button>
+          <span class="heading">Nouveau rapport </span>
+          <i class="fas fa-plus"></i>
+          <i class="fas fa-ellipsis-v"></i>
+      </div>
+
+    </div>
+
+    <div class="bottom">
+        <div class="expense-income-tab">
+            <span class="expense-tab active">Enregistrer un rapport </span>
+
+        </div>
+        <div class="transaction-row" >
+          <form  [formGroup]="form" (ngSubmit)="submitForm()">
+
+            <div class="input-group mb-3">
+              <label for="libelle"> Libelle </label>
+              <input type="text" class="form-control form-control-lg bg-light fs-6" formControlName="libelle" name="libelle">
+            </div>
+
+            <div class="input-group mb-3">
+              <label> Objet </label>
+              <input type="text" class="form-control form-control-lg bg-light fs-6" formControlName="objet" name="objet">
+            </div>
+
+            <div class="input-group mb-3">
+              <label > Date de creation  </label>
+              <input type="date" class="form-control form-control-lg bg-light fs-6" formControlName="dateRapport" name="dateRapport">
+            </div>
+
+
+            <div class="input-group mb-3">
+              <input type="file" (change)="getFile($event)"  name="fichier">
+            </div>
+
+            <div class="input-group mb-3">
+              <button               class="btn btn-lg btn-primary w-100 fs-12"
+              id="submitBtn"
+              type="submit"
+              expand="block"
+              shape="round"
+              [disabled]="form.invalid" > Envoyer  </button>
+            </div>
+
+          </form>
+
+        </div>
+
+    </div>
+</div>
+</ion-content>
+

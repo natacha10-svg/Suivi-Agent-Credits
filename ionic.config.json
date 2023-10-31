@@ -1,0 +1,7 @@
+{
+  "name": "suivi-agent-credit",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

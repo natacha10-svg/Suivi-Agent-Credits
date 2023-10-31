@@ -1,0 +1,271 @@
+<ion-content>
+
+  <div class="container">
+    <div class="top">
+      
+        <div class="header-row">
+          <ion-button routerLink="/dashboard-user/dashboard-user/liste-echeances"> <ion-icon name="arrow-back"> </ion-icon></ion-button>
+            <span class="heading">Nouveau client </span>
+            <i class="fas fa-plus"></i>
+            <i class="fas fa-ellipsis-v"></i>
+        </div>
+
+    </div>
+
+    <div class="bottom">
+        <div class="expense-income-tab">
+            <span class="expense-tab active">Enregistrer un client </span>
+
+        </div>
+        <div class="transaction-row" >
+
+
+      <form  [formGroup]="prospectForm"  (ngSubmit)="onSubmit()">
+
+        <h3>Informations personnelles</h3>
+        <div class="row">
+          <div class="input-group">
+            <input
+              name="nom"
+              placeholder="Nom du prospect "
+              type="text"
+              class="form-control form-control-lg bg-light fs-6"
+              formControlName="nom"
+            />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-group">
+            <input
+              name="prenom"
+              placeholder="prenom du prospect"
+              type="text"
+              class="form-control form-control-lg bg-light fs-6"
+              formControlName="prenom"
+            />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-group">
+            <input
+              name="dateNaissanceClient"
+              placeholder="Date de Naissance "
+              type="date"
+              class="form-control form-control-lg bg-light fs-6"
+              formControlName="dateNaissanceClient"
+            />
+          </div>
+
+          <div class="input-group">
+            <input
+              name="sexe"
+              placeholder="sexe"
+              type="text"
+              class="form-control form-control-lg bg-light fs-6"
+              formControlName="sexe"
+            />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-group">
+            <input
+              name="profession"
+              placeholder="profession"
+              type="text"
+              class="form-control form-control-lg bg-light fs-6"
+              formControlName="profession"
+            />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-group">
+            <input
+              name="residence"
+              placeholder="residence"
+              type="text"
+              class="form-control form-control-lg bg-light fs-6"
+              formControlName="residence"
+            />
+          </div>
+        </div>
+
+
+        <h3>Details sur les contacts</h3>
+        <div class="row">
+          <div class="input-group">
+            <input
+              name="telephone"
+              placeholder="+237 XXXXXXXX"
+              type="number"
+              class="form-control form-control-lg bg-light fs-6"
+              formControlName="telephone"
+            />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-group">
+            <input
+              name="numeroCNI"
+              placeholder="XXXXXXXXXXXXX"
+              type="number"
+              class="form-control form-control-lg bg-light fs-6"
+              formControlName="numeroCNI"
+            />
+          </div>
+        </div>
+
+
+
+        <h3>Information concernant la demande de credit</h3>
+        <div class="row">
+          <div class="input-group">
+            <label class="interface"> Type de credit </label>
+            <select
+              name="libelleDemande"
+              formControlName="libelleDemande"
+              class="form-control form-control-lg bg-light fs-6"
+              required
+            >
+              <option value="Credit Revolving">Credit Revolving</option>
+              <option value="Credit fond de roulement">
+                Credit fond de roulement
+              </option>
+              <option value="Escompte cheque traite">
+                Escompte cheque traite
+              </option>
+              <option value="Escompte facture">Escompte facture</option>
+              <option value="Caution bancaire">Caution bancaire</option>
+              <option value="Avance sur Listing ">Avance sur Listing</option>
+              <option value="Financement des marches">
+                Financement des marches
+              </option>
+              <option value="Dedouanement des marchandises">
+                Dedouanement des marchandises
+              </option>
+              <option value="Financement bon de commande">
+                Financement bon de commande
+              </option>
+              <option value="Credit aux particuliers">
+                Credit aux particuliers
+              </option>
+              <option value="Avance sur salaire">Avance sur salaire</option>
+              <option value="Credit scolaire">Credit scolaire</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-group">
+            <input
+              name="montant"
+              placeholder="Montant"
+              type="number"
+              class="form-control form-control-lg bg-light fs-6"
+              formControlName="montant"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-group">
+            <input
+              name="duree"
+              placeholder="Duree"
+              type="number"
+              class="form-control form-control-lg bg-light fs-6"
+              formControlName="duree"
+            />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-group">
+            <input
+              name="dateDemande"
+              placeholder="Date de la demande"
+              type="date"
+              class="form-control form-control-lg bg-light fs-6"
+              formControlName="dateDemande"
+            />
+          </div>
+        </div>
+
+
+
+        <h4>Informations sur la localisation</h4>
+        <div class="row">
+          <div class="input-group">
+            <input
+              name="ville"
+              placeholder="Ville"
+              type="text"
+              class="form-control form-control-lg bg-light fs-6"
+              formControlName="ville"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-group">
+            <input
+              name="quartier"
+              placeholder="Quartier"
+              type="text"
+              class="form-control form-control-lg bg-light fs-6"
+              formControlName="quartier"
+            />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-group">
+            <input
+              name="longitude"
+              placeholder="Longitude"
+              type="number"
+              class="form-control form-control-lg bg-light fs-6"
+              formControlName="longitude"
+            />
+          </div>
+
+          <div class="input-group">
+            <input
+              name="lattitude"
+              placeholder="lattitude"
+              type="number"
+              class="form-control form-control-lg bg-light fs-6"
+              formControlName="lattitude"
+            />
+          </div>
+        </div>
+        <div id="map" style="width: 100%; height: 400px;"></div>
+
+
+      <div class="input-group">
+
+        <button
+        class="btn btn-lg btn-primary w-100 fs-12"
+        id="submitBtn"
+        type="submit"
+        expand="block"
+        shape="round"
+        >
+          Enregistrer
+        </button>
+      </div>
+
+      <!--<div id="map" style="height: 200px; width: 300px;"></div> -->
+    </form>
+
+
+        </div>
+
+    </div>
+</div>
+</ion-content>
+

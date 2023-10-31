@@ -1,0 +1,40 @@
+<ion-content>
+  <div class="container">
+    <div class="top">
+        <div class="header-row">
+          <ion-menu-button menu="main-menu"></ion-menu-button>
+            <span class="heading">Liste des echeances </span>
+            <i class="fas fa-plus"></i>
+            <i class="fas fa-ellipsis-v"></i>
+        </div>
+
+    </div>
+
+    <div class="bottom">
+        <div class="expense-income-tab">
+            <span class="expense-tab active">Echeances de la semaines</span>
+
+            <i class="fas fa-filter"></i>
+        </div>
+        <div class="transaction-row" *ngFor="let echeance of echeances">
+            <div class="transaction-icon">
+                <svg width="60" height="60" class="transaction-svg">
+                    <circle r="28" cx="30" cy="30" class="transaction-track"></circle>
+                    <circle r="28" cx="30" cy="30" class="transaction-progress" stroke="#23b3ee" stroke-dashoffset="100"></circle>
+                </svg>
+                <i class="bi bi-calendar3-week-fill icon"></i>
+            </div>
+            <div class="transaction-name-col" (click)="demande(echeance)">
+                <span class="transaction-name">{{ echeance.nom }}, {{ echeance.prenom }}</span>
+                <span class="transaction-desc"> {{echeance.dateEcheance  | date }} {{ echeance.residence }}</span>
+            </div>
+            <div class="transaction-amount-col">
+                <span class="transaction-amount">{{ echeance. montantEcheance }} Fcfa</span>
+                <span class="transaction-amount-desc"> {{ echeance. montant }} </span>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</ion-content>

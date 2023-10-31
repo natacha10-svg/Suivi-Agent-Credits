@@ -1,0 +1,53 @@
+
+<ion-content>
+  <div class="container">
+    <div class="top">
+        <div class="header-row">
+          <ion-menu-button menu="main-menu"></ion-menu-button>
+            <span class="heading">Mes clients </span>
+            <i class="fas fa-plus"></i>
+            <i class="fas fa-ellipsis-v"></i>
+        </div>
+    </div>
+
+    <div class="bottom">
+        <div class="expense-income-tab">
+            <span class="expense-tab active">Liste des clients</span>
+            <i class="bi bi-person-plus-fill" (click)="gotoProspect()"></i>
+        </div>
+        <input type="search" [(ngModel)]="SearchText"  placeholder="Search..." />
+
+        <ng-container *ngIf="(clients | filter: SearchText)?.length > 0 ; else noResults" >
+        <div class="transaction-row" *ngFor="let client of clients | filter : SearchText">
+            <div class="transaction-icon">
+                <svg width="60" height="60" class="transaction-svg">
+                    <circle r="28" cx="30" cy="30" class="transaction-track"></circle>
+                    <circle r="28" cx="30" cy="30" class="transaction-progress" stroke="#23b3ee" stroke-dashoffset="100"></circle>
+                </svg>
+                <i class="bi bi-people-fill icon"></i>
+            </div>
+            <div class="transaction-name-col" (click)="gotoDetail(client)">
+                <span class="transaction-name">{{ client.libelleDemande}}</span>
+                <span class="transaction-desc"> {{client.nom}}, {{ client.prenom }},{{ client.residence }}</span>
+            </div>
+            <div class="transaction-amount-col">
+                <span class="transaction-amount">{{ client.montant }} Fcfa</span>
+
+            </div>
+        </div>
+        </ng-container>
+        <ng-template #noResults>
+          <div>
+            <span>
+              Aucune echenace cette semaine
+            </span>
+            </div>
+          </ng-template>
+
+    </div>
+</div>
+    <ion-button (click)="gotoProspect()" class="btn-floating btn-large waves-effect waves-light"><ion-icon name="add-outline"></ion-icon></ion-button>
+
+
+
+</ion-content>

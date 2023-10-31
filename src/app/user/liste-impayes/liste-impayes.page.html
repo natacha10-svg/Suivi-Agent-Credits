@@ -1,0 +1,37 @@
+
+
+<ion-content>
+
+  <div class="container">
+    <div class="top">
+
+
+    </div>
+
+    <div class="bottom">
+        <div class="expense-income-tab">
+            <span class="expense-tab active">Les impayes </span>
+
+        </div>
+        <div class="transaction-row" *ngFor="let impaye of impayes">
+            <div class="transaction-icon">
+                <svg width="60" height="60" class="transaction-svg">
+                    <circle r="28" cx="30" cy="30" class="transaction-track"></circle>
+                    <circle r="28" cx="30" cy="30" class="transaction-progress" stroke="#23b3ee" stroke-dashoffset="100"></circle>
+                </svg>
+                <i class="fas fa-shopping-cart icon"></i>
+            </div>
+            <div class="transaction-name-col" (click)="demande(impaye)">
+                <span class="transaction-name">{{ impaye.nom }} {{ impaye.prenom }}  </span>
+                <span class="transaction-desc"> {{ impaye.telephone }},{{ impaye.residence }}</span>
+            </div>
+            <div class="transaction-amount-col">
+                <span class="transaction-amount">{{ impaye.montantEcheance }} Fcfa</span>
+                <span class="transaction-amount">{{ impaye.dateEcheance | date }}</span>
+            </div>
+        </div>
+
+    </div>
+</div>
+</ion-content>
+
