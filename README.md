@@ -20,6 +20,8 @@ Les superviseurs de crédits quand à eux peuvent:
 - Analyser les performances des agents de crédits,
 - Evaluer l'évolution des demandes de crédits au courant de l'annee
 - Consulter la liste des impayes,
+- Consulter et lire les rapports de prospection,
+- Consulter la liste des demandes de crédits et consulter les échéances de remboursement de cette demandes,
 - Transférér une demande à un agent de crédits,
 
 Dans le fichier App. vous trouverez six dossiers :
